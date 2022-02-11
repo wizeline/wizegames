@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+ @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+ :root {
+  --main-bg-color: #213449;
+  --dark-bg-color: #111723;
+  --red-l: #dd473c;
+  --red-m: #bb3030;
+  --red-d: #901f3d;
+  --blue-l: #2c89af;
+  --blue-m: #2a5684;
+  --blue-d: #1f2966;
+ }
+
+ *, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: var(--main-bg-color);
+}
