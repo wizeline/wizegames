@@ -1,0 +1,4 @@
+<%= form_with url: '/search', class:'search-bar', method: :get do |form| %>
+  <%= form.text_field :query, placeholder: 'Search something!' %>
+  <%= form.submit 'Search' %>
+<% end %>

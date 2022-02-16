@@ -1,0 +1,15 @@
+<section class='home'>
+  <div class='hero'>
+    <div class='hero-img'>
+    </div>
+    <div class='container'>
+      <h1> Lets Play! </h1>
+      <%= render 'shared/search_bar' %>
+    </div>
+  </div>
+  <div class='games-container'>
+    <% (0..8).each do %>
+      <%= render 'shared/game_card' %>
+    <% end%>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark-bg-color);
+  
+  div {
+    padding: 1rem;
+  
+    p {
+      color: white;
+    }
+  }
+
+  .logo {
+    width: 150px;
+    border-radius: 18px;
+    background-color: white;
+    padding: 1em;
+  }
+}
