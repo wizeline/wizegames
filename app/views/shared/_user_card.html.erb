@@ -1,8 +1,13 @@
 <div class='user-card'>
   <%= image_tag 'default_picture.png', class: 'picture' %>
-
   <div class='info'>
-    <p> User name </p>
-    <p> Data data data </p>
+      <p> <%= current_user.email %> </p>
+      <p> Data data data </p>
   </div>
 </div>
+
+<%# <% if !session[:oktastate] %>
+<%#  <%= link_to "Sign In Or Sign Up", user_oktaoauth_omniauth_authorize_path :class => 'navbar-link' %>
+<%# <% else %>
+<%#  <%= link_to "logout", ENV['OKTA_URL'] + "/login/signout?fromURI=" + request.base_url + "/logout", class: "navbar-link" %>
+<%# <% end %>
