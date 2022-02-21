@@ -2,3 +2,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "channels"
+
+window.onload = (e) => {
+  console.log('holi load')
+}
