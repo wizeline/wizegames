@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   devise_for :users
-  root 'start#index'
+  root 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   get 'dashboard', to: 'start#dashboard'

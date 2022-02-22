@@ -14,7 +14,6 @@ consumer.subscriptions.create("MatchMakerChannel", {
 
   received(data) {
     setTimeout(() => {
-      console.log(data)
       if (data.ready !== undefined) {
       document.getElementById('game_status').innerHTML = ''
       document.getElementById('game_status').innerHTML = 'Game ready:' + data.ready

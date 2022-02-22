@@ -1,0 +1,48 @@
+.match {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1em;
+
+  .match-container {
+    background-color: var(--dark-bg-color);
+    border-radius: 18px;
+    color: var(--blue-l);
+    padding: 2em;
+    .status {
+      font-size: 5em;
+    }
+    .players-container {
+      font-size: 2em;
+    }
+    .results {
+      font-size: 2em;
+    }
+  }
+
+  .game-input {
+    display: flex;
+    input[type='text'] {
+      border-radius: 18px;
+      padding: 1rem;
+      width: 100%;
+    }
+  
+    button {
+      border-radius: 18px;
+      background-color: var(--red-l);
+      color: white;
+      border-style: none;
+      transition: all ease-in-out 0.2s;
+  
+      &:hover {
+        transform: scale(1.1);
+      }
+      &:disabled {
+        background-color: whitesmoke;
+      }
+    }
+  }
+}

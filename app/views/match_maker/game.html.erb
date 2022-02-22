@@ -1,15 +1,19 @@
-<div id='game_status'>
-</div>
-<div id='current_players'>
-</div>
-<div id='game_result'>
-  Winner:
-</div>
+<section class=match>
+  <div class='match-container'>
+    <div id='game_status' class='status'>
+    </div>
+    <div id='current_players' class='players-container'>
+    </div>
+    <div id='game_result' class='results'>
+      Winner:
+    </div>
+  </div>
 
 <div id='game_1'>
 </div>
 
-  <div data-controller="hello">
+  <div data-controller="hello" class='game-input'>
     <input id='game_input' type='text' placeholder='write something' >
     <button id='game_btn' type='button' data-action="click->hello#greet">Test!</button>
   </div>
+</section>

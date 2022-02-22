@@ -38,11 +38,10 @@ class MatchMaker < ApplicationRecord
                                    ready: game_ready? })
   end
 
-
-# This should probably be in another class/service
+  # This should probably be in another class/service
 
   def self.make_teams
-    teams = $redis.smembers('game_set').group_by {|player| User.find_by_email(player).id.even? ? 'Team 1' : 'Team 2'}
+    teams = $redis.smembers('game_set').group_by { |player| User.find_by_email(player).id.even? ? 'Team 1' : 'Team 2' }
     $redis.sadd('teams', teams)
     set_active_turn
   end
@@ -59,8 +58,8 @@ class MatchMaker < ApplicationRecord
     temp = eval($redis.smembers('teams')[1])[:active]
     inactive_player = temp
     active_player = $redis.smembers('game_set') - [inactive_player]
-    $redis.srem('teams', { active: inactive_player})
-    $redis.sadd('teams', { active: active_player[0]})
+    $redis.srem('teams', { active: inactive_player })
+    $redis.sadd('teams', { active: active_player[0] })
     ActionCable.server.broadcast("game_#{active_player[0]}", { active: true })
     ActionCable.server.broadcast("game_#{inactive_player}", { active: false })
   end
