@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class GameTest < ActiveSupport::TestCase
+class MatchMakerControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

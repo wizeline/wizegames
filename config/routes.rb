@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   get 'dashboard', to: 'start#dashboard'
-  get 'game', to: 'start#game'
+  get 'game', to: 'match_maker#game'
   # Defines the root path route ("/")
   # root "articles#index"
 end

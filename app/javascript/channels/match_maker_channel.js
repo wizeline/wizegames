@@ -1,6 +1,6 @@
 import consumer from "channels/consumer"
 
-consumer.subscriptions.create("MatchChannel", {
+consumer.subscriptions.create("MatchMakerChannel", {
 
   initialized() {
   },
@@ -14,23 +14,27 @@ consumer.subscriptions.create("MatchChannel", {
 
   received(data) {
     setTimeout(() => {
+      console.log(data)
       if (data.ready !== undefined) {
       document.getElementById('game_status').innerHTML = ''
       document.getElementById('game_status').innerHTML = 'Game ready:' + data.ready
+
+      // document.getElementById('game_btn').disabled = !data.ready
+      }
+      if (data.result !== undefined) {
+        document.getElementById('game_result').innerHTML = data.result
+      }
+      if (data.game_data !== undefined) {
+        document.getElementById('current_players').innerHTML = ''
+        document.getElementById('current_players').innerHTML = 'Current players:' + data.game_data
       }
       this.install()
     }, 200);
-
-    document.getElementById('game_result').innerHTML = data.result
   },
 
   update() {
   },
 
   install() {
-    document.getElementById('btn_test').addEventListener('click', (e) => {
-      const text = document.getElementById('input_test').value
-      this.perform('notify', {data: text})
-    })
   }
 });

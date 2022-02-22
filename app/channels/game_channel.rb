@@ -2,19 +2,17 @@
 
 class GameChannel < ApplicationCable::Channel
   def subscribed
-    stream_from 'game'
+    stream_from "game_#{current_user.email}"
   end
 
   def unsubscribed
-    Start.withdraw(current_user)
+    # Any cleanup needed when channel is unsubscribed
   end
 
-  def new_tag(tag: text)
-    puts tag
-  end
-
-  def test_service
-    puts 'output test_service'
-    Gallow::HangMan.new.set_word some: 'hola'
+  def notify(params)
+    Game.do_actions(
+      data: { player: current_user, player_action: params['data'] },
+      ref: Gallow::HangMan.new
+    )
   end
 end

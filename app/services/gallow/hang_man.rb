@@ -13,8 +13,7 @@ module Gallow
 
     def do(data)
       $redis.sadd 'moves', { p: data[:player].email, move: data[:player_action] }
-      p $redis.smembers 'moves'
-      'returning results'
+      MatchMaker.next_turn
       check_outcome
     end
 
@@ -26,12 +25,15 @@ module Gallow
       moves = $redis.smembers 'moves'
 
       if eval(moves[0])[:move].size > eval(moves[1])[:move].size
-        ActionCable.server.broadcast('some_match', { result: "Player #{eval(moves[0])[:p]} won!" })
-        $redis.del 'moves'
+        ActionCable.server.broadcast('matchmaker', { result: "Player #{eval(moves[0])[:p]} won!" })
       else
-        ActionCable.server.broadcast('some_match', { result: "Player #{eval(moves[1])[:p]} won!" })
-        $redis.del 'moves'
+        ActionCable.server.broadcast('matchmaker', { result: "Player #{eval(moves[1])[:p]} won!" })
       end
+      reset_game
+    end
+
+    def reset_game
+      $redis.del 'moves'
     end
   end
 end
