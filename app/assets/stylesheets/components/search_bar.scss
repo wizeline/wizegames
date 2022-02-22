@@ -1,0 +1,23 @@
+.search-bar {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  width: 100%;
+
+  input[type='text'] {
+    border-radius: 18px;
+    padding: 1rem;
+    width: 100%;
+  }
+  input[type='submit'] {
+    border-radius: 18px;
+    background-color: var(--red-l);
+    color: white;
+    border-style: none;
+    transition: all ease-in-out 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

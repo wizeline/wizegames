@@ -1,0 +1,41 @@
+
+
+.hero {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.226);
+  border-radius: 18px;
+  padding: 1em;
+  margin: 4em;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      align-self: center;
+      font-size: 4rem;
+      background-image: url("color_splash_3.webp");
+      background-clip: text;
+      -webkit-background-clip: text;
+      background-size: auto;
+      background-position-y: -170px;
+      background-repeat: no-repeat;
+      color: transparent;
+      font-family: 'Ubuntu', sans-serif;
+    }
+  }
+
+  .hero-img {
+    background-image: url("wize_games.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 500px;
+    height: 500px;
+  }
+}
