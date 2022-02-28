@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  before_action :user_is_logged_in?
   before_action :set_game, only: %i[ show edit update destroy ]
 
   # GET /games or /games.json

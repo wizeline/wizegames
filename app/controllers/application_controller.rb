@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  before_action :user_is_logged_in?
-  
   def user_is_logged_in?
     if !session["oktastate"]
       redirect_to user_oktaoauth_omniauth_authorize_path
