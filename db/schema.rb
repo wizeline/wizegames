@@ -10,9 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_16_075107) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_28_190153) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cats", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.json "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cats_on_user_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.json "data"
+    t.json "players"
+    t.json "state"
+    t.json "result"
+    t.json "statistics"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false
@@ -21,6 +39,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_16_075107) do
     t.datetime "updated_at", null: false
     t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
+  end
+
+  create_table "true_questions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.json "questions"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_true_questions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,4 +65,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_16_075107) do
     t.index ["uid"], name: "index_users_on_uid"
   end
 
+  add_foreign_key "cats", "users"
+  add_foreign_key "true_questions", "users"
 end
