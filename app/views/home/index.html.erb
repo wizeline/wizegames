@@ -8,8 +8,10 @@
     </div>
   </div>
   <div class='games-container'>
-    <% (0..8).each do %>
-      <%= render 'shared/game_card' %>
-    <% end%>
+    <%# (0..8).each do %>
+      <%#= render 'shared/game_card' %>
+    <%# end %>
+    <%= link_to 'TrueQuestion', games_path(name: 'true_question') %><br>
+    <%= link_to 'Cat', games_path(name: 'cat') %>
   </div>
 </section>

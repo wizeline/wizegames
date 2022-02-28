@@ -1,0 +1,14 @@
+<h1><%= params[:name].capitalize %></h1>
+<%= current_user.email %><br>
+
+<% game = Game.create %>
+
+<% case params[:name] %>
+<% when 'cat' %>
+  <% cat = Cat.create! user_id: current_user.id %>
+  <% game.set_game name: params[:name], sort: 'cat', id: cat.id %>
+<% when 'true_question' %>
+  <% tq = TrueQuestion.create! user_id: current_user.id %>
+  <% game.set_game name: params[:name], sort: 'true_question', id: tq.id %>
+<% end %>
+<%= link_to 'Start Game', game_path(game) %>

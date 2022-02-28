@@ -1,0 +1,35 @@
+<div id="<%= dom_id game %>">
+
+  <p>
+    <strong>Data:</strong>
+    <%= game.data %>
+  </p>
+
+  <p>
+    <strong>Players:</strong>
+    <%= game.players %>
+  </p>
+
+  <p>
+    <strong>State:</strong>
+    <% case game.data['sort'] %>
+    <% when 'true_question' %>
+      <% true_question = TrueQuestion.find game.data['game_id'] %>
+      <%= true_question.questions %>
+    <% when 'cat' %>
+      <% cat = Cat.find game.data['game_id'] %>
+      <%= cat.state %>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Result:</strong>
+    <%#= game.result %>
+  </p>
+
+  <p>
+    <strong>Statistics:</strong>
+    <%#= game.statistics %>
+  </p>
+
+</div>
