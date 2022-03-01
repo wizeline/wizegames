@@ -1,0 +1,13 @@
+.row {
+  display: flex;
+  width: 150px;
+  height: 50px;
+}
+
+.cell {
+  flex-grow: 1;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

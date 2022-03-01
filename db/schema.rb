@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_220_228_190_153) do
+ActiveRecord::Schema[7.0].define(version: 20_220_301_165_754) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -24,12 +24,40 @@ ActiveRecord::Schema[7.0].define(version: 20_220_228_190_153) do
     t.index ['user_id'], name: 'index_cats_on_user_id'
   end
 
+  create_table 'four_lines', force: :cascade do |t|
+    t.bigint 'user_id', null: false
+    t.json 'state'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['user_id'], name: 'index_four_lines_on_user_id'
+  end
+
   create_table 'games', force: :cascade do |t|
     t.json 'data'
     t.json 'players'
     t.json 'state'
     t.json 'result'
     t.json 'statistics'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
+
+  create_table 'games_moves', id: false, force: :cascade do |t|
+    t.bigint 'game_id', null: false
+    t.bigint 'move_id', null: false
+    t.index %w[game_id move_id], name: 'index_games_moves_on_game_id_and_move_id'
+  end
+
+  create_table 'hangmen', force: :cascade do |t|
+    t.bigint 'user_id', null: false
+    t.json 'state'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['user_id'], name: 'index_hangmen_on_user_id'
+  end
+
+  create_table 'moves', force: :cascade do |t|
+    t.json 'data'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
   end
@@ -68,5 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 20_220_228_190_153) do
   end
 
   add_foreign_key 'cats', 'users'
+  add_foreign_key 'four_lines', 'users'
+  add_foreign_key 'hangmen', 'users'
   add_foreign_key 'true_questions', 'users'
 end
