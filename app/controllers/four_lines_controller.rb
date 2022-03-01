@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FourLinesController < ApplicationController
   def index
     @four_lines = FourLine.all

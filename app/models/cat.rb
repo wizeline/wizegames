@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Cat < ApplicationRecord
   belongs_to :user
   broadcasts
@@ -11,7 +13,7 @@ class Cat < ApplicationRecord
     }
     # state[row][col]
 
-    #@current_symbol = [:x, :o].sample
+    # @current_symbol = [:x, :o].sample
   end
 
   # def move! row, col

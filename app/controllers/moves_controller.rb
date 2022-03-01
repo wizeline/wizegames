@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MovesController < ApplicationController
   def create
     @game = Game.find params[:game_id]

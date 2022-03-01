@@ -1,15 +1,14 @@
-class SessionsController < ApplicationController
-  def new
-  end
+# frozen_string_literal: true
 
-  def create
-  end
+class SessionsController < ApplicationController
+  def new; end
+
+  def create; end
 
   def destroy
     session[:oktastate] = nil
-    redirect_to "/sign_in"
-  end  
-
-  def failure
+    redirect_to '/sign_in'
   end
+
+  def failure; end
 end

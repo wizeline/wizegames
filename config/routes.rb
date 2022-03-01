@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  root "home#index"
+  root 'home#index'
 
   resources :games
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   # Defines the root path route ("/")
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  get '/sign_in', :to => 'sessions#new', :as => :new_session
-  get '/logout', :to => 'sessions#destroy'
+  get '/sign_in', to: 'sessions#new', as: :new_session
+  get '/logout', to: 'sessions#destroy'
 
   resources :cats do
     resources :moves, only: [:create]

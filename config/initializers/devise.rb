@@ -37,17 +37,18 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
-  
+
   config.omniauth(:oktaoauth,
-    ENV['OKTA_CLIENT_ID'],
-    ENV['OKTA_CLIENT_SECRET'],
-    :scope => 'openid profile email',
-    :fields => ['profile', 'email'],
-    :client_options => {site: ENV['OKTA_ISSUER'], authorize_url: ENV['OKTA_ISSUER'] + "/v1/authorize", token_url: ENV['OKTA_ISSUER'] + "/v1/token"},
-    :redirect_uri => ENV["OKTA_REDIRECT_URI"],
-    :auth_server_id => ENV['OKTA_AUTH_SERVER_ID'],
-    :issuer => ENV['OKTA_ISSUER'],
-    :strategy_class => OmniAuth::Strategies::Oktaoauth)
+                  ENV['OKTA_CLIENT_ID'],
+                  ENV['OKTA_CLIENT_SECRET'],
+                  scope: 'openid profile email',
+                  fields: %w[profile email],
+                  client_options: { site: ENV['OKTA_ISSUER'], authorize_url: "#{ENV['OKTA_ISSUER']}/v1/authorize",
+                                    token_url: "#{ENV['OKTA_ISSUER']}/v1/token" },
+                  redirect_uri: ENV['OKTA_REDIRECT_URI'],
+                  auth_server_id: ENV['OKTA_AUTH_SERVER_ID'],
+                  issuer: ENV['OKTA_ISSUER'],
+                  strategy_class: OmniAuth::Strategies::Oktaoauth)
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
