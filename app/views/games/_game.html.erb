@@ -13,9 +13,9 @@
   <p>
     <strong>State:</strong>
     <% case game.data['sort'] %>
-    <% when 'true_question' %>
-      <% true_question = TrueQuestion.find game.data['game_id'] %>
-      <%= true_question.questions %>
+    <% when 'four_line' %>
+      <% four_line = FourLine.find game.data['game_id'] %>
+      <%= four_line.state %>
     <% when 'cat' %>
       <% cat = Cat.find game.data['game_id'] %>
       <%= cat.state %>
