@@ -13,12 +13,18 @@
   <p>
     <strong>State:</strong>
     <% case game.data['sort'] %>
-    <% when 'four_line' %>
-      <% four_line = FourLine.find game.data['game_id'] %>
-      <%= four_line.state %>
     <% when 'cat' %>
-      <% cat = Cat.find game.data['game_id'] %>
-      <%= cat.state %>
+      <% @cat = Cat.find game.data['game_id'] %>
+      <%= turbo_stream_from @cat %>
+      <div id="<%= dom_id(@cat) %>">
+        <%= render @cat %>
+      </div>
+    <% when 'four_lines' %>
+      <% @four_lines = FourLine.find game.data['game_id'] %>
+      <%= turbo_stream_from @four_lines %>
+      <div id="<%= dom_id(@four_lines) %>">
+        <%= render @four_lines %>
+      </div>    
     <% end %>
   </p>
 

@@ -1,2 +1,20 @@
-<h1>FourLines#_four_line</h1>
-<p>Find me in app/views/four_lines/_four_line.html.erb</p>
+<div id="<%= dom_id four_line %>">
+  <% 4.times do |row| %>
+    <div class='row'>
+      <% 4.times do |col| %>
+      <span class='cell'>
+        <% unless four_line.state['board'][row.to_s][col.to_s].nil? %>
+          <%= four_line.state['board'][row.to_s][col.to_s] %>
+        <% else %>
+          <% game = Game.last %>
+          <%= button_to four_line.state['current_symbol'], four_line_moves_path(four_line), params: { game_id: game.id, col: col, row: row } %>
+        <% end %>
+      </span>
+      <% end %>
+    </div>
+  <% end %>
+
+  <br><% four_line.state.each do |element| %>
+    <%= element %><br>
+  <% end %><br>
+</div>

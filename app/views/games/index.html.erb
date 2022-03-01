@@ -4,11 +4,11 @@
 <% game = Game.create %>
 
 <% case params[:name] %>
-<% when 'cat' %>
+  <% when 'cat' %>
   <% cat = Cat.create! user_id: current_user.id %>
   <% game.set_game name: params[:name], sort: 'cat', id: cat.id %>
-<% when 'four_line' %>
-  <% four_line = FourLine.create! user_id: current_user.id %>
-  <% game.set_game name: params[:name], sort: 'four_line', id: four_line.id %>
+  <% when 'four_lines' %>
+  <% four_lines = FourLine.create! user_id: current_user.id %>
+  <% game.set_game name: params[:name], sort: 'four_lines', id: four_lines.id %>
 <% end %>
 <%= link_to 'Start Game', game_path(game) %>

@@ -1,2 +1,20 @@
-<h1>Cats#_cat</h1>
-<p>Find me in app/views/cats/_cat.html.erb</p>
+<div id="<%= dom_id cat %>">
+  <% 3.times do |row| %>
+    <div class='row'>
+      <% 3.times do |col| %>
+      <span class='cell'>
+        <% unless cat.state['board'][row.to_s][col.to_s].nil? %>
+          <%= cat.state['board'][row.to_s][col.to_s] %>
+        <% else %>
+          <% game = Game.last %>
+          <%= button_to cat.state['current_symbol'], cat_moves_path(cat), params: { game_id: game.id, col: col, row: row } %>
+        <% end %>
+      </span>
+      <% end %>
+    </div>
+  <% end %>
+
+  <br><% cat.state.each do |element| %>
+    <%= element %><br>
+  <% end %><br>
+</div>
