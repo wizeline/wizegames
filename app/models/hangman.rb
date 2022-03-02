@@ -5,10 +5,11 @@ class Hangman < ApplicationRecord
   broadcasts
 
   before_validation on: :create do
+    random_word = Spicy::Proton.adjective
     self.state = {
-      chances: 6,
-      word: Spicy::Proton.adjective,
-      placeholder: '*' * 'secret'.size,
+      chances: 9,
+      word: random_word,
+      placeholder: '*' * random_word.size,
       game_state: 'Running'
       }
   end
