@@ -1,0 +1,49 @@
+.game {
+  &.hangman {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+
+    p {
+      color: rgb(207, 207, 207);
+      font-size: 2rem;
+    }
+
+    h1 {
+      font-size: 5rem;
+      color: var(--red-l);
+    }
+
+    h2 {
+      font-size: 3rem;
+      color: var(--blue-l);
+    }
+
+    h4 {
+      font-size: 3rem;
+      color: var(--blue-l);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      input[type="text"] {
+        border-radius: 18px;
+        font-size: 2rem;
+      }
+
+      input[type="submit"] {
+        border-radius: 18px;
+        font-size: 2rem;
+        width: 50%;
+      }
+    }
+  }
+}

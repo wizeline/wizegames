@@ -1,6 +1,6 @@
 <%= turbo_stream_from @game %>
 <% @game.register_user current_user %>
 
-<div id="<%= dom_id(@game) %>">
+<%= tag.div id: dom_id(@game) do %>
   <%= render @game %>
-</div>
+<% end %>

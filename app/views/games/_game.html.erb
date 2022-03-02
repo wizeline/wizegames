@@ -24,7 +24,13 @@
       <%= turbo_stream_from @four_lines %>
       <div id="<%= dom_id(@four_lines) %>">
         <%= render @four_lines %>
-      </div>    
+      </div>
+    <% when 'hangman' %>
+    <% @hangman = Hangman.find game.data['game_id'] %>
+    <%= turbo_stream_from @hangman %>
+    <div id="<%= dom_id(@hangman) %>">
+      <%= render @hangman, game: game %>
+    </div>    
     <% end %>
   </p>
 
