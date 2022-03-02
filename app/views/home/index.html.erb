@@ -21,6 +21,12 @@
           <p> Play this classic board game against a friend. Connect four of your color checkers in a row horizontally, vertically, or diagonally before your opponent. The first player to connect four of the same color chips in a row wins.</p>
         </div>
       </div>
+      <div class='game-card' onclick="window.location='<%=games_path(name: 'hangman')%>'">
+        <div>
+          <h4> <%= link_to 'Hang Man', games_path(name: 'hangman') %> </h4>
+          <p> Guess your opponents words.</p>
+        </div>
+      </div>
 
     <%# end %>
     <br>
