@@ -39,3 +39,7 @@ html, body {
   font-family: 'Ubuntu', sans-serif;
   background-color: var(--main-bg-color);
 }
+a{
+  color: inherit; /* blue colors for links too */
+  /* text-decoration: inherit; /* no underline */
+}

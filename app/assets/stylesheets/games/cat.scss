@@ -1,0 +1,39 @@
+
+.cat_game {
+  padding: 15px;
+
+  button {
+    color: transparent !important;
+    background: none!important;
+    padding: 5px 10px!important;
+    margin: 0px!important;
+    border: none!important;
+    height: 100px;
+    width: 100px;
+  }
+
+  .cat_row_0 {
+    .cell {
+      border-bottom: 3px solid white;
+    }
+    .cat_col_1 {
+      border-right: 3px solid white;
+      border-left: 3px solid white;
+    }
+  }
+  .cat_row_1 {
+    .cat_col_1 {
+      border-right: 3px solid white;
+      border-left: 3px solid white;
+    }
+  }
+  .cat_row_2 {
+    .cell {
+      border-top: 3px solid white;
+    }
+    .cat_col_1 {
+      border-right: 3px solid white;
+      border-left: 3px solid white;
+    }
+  }
+}

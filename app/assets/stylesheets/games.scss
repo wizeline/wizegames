@@ -1,13 +1,56 @@
+$text-color: white;
+
+@mixin text-style($theme: white) {
+  color:$theme;
+  text-shadow:
+    0 1px 0px #378ab4,
+    1px 0 0px #5dabcd,
+    1px 2px 1px #378ab4,
+    2px 1px 1px #5dabcd,
+    2px 3px 2px #378ab4,
+    3px 2px 2px #5dabcd,
+    3px 4px 2px #378ab4,
+    4px 3px 3px #5dabcd,
+    4px 5px 3px #378ab4,
+    5px 4px 2px #5dabcd,
+    5px 6px 2px #378ab4,
+    6px 5px 2px #5dabcd,
+    6px 7px 1px #378ab4,
+    7px 6px 1px #5dabcd,
+    7px 8px 0px #378ab4,
+    8px 7px 0px #5dabcd; 
+}
+
 .row {
   display: flex;
-  width: 150px;
-  height: 50px;
+  height: 100px;
 }
 
 .cell {
   flex-grow: 1;
-  border: 1px solid red;
+  //border: 1px solid red;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  max-width: 100px;
+  font-size: 75px;
+  @include text-style($theme: $text-color)
+}
+
+.game_board{
+  padding:15px;
+  color:$text-color;
+}
+
+.lobby{
+  padding: 15px;
+  color:$text-color;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  div{
+    align-self: center;
+    padding: 10px;
+  }
 }
