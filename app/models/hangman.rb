@@ -1,3 +1,5 @@
+require 'spicy-proton'
+
 class Hangman < ApplicationRecord
   belongs_to :user
   broadcasts
@@ -5,7 +7,7 @@ class Hangman < ApplicationRecord
   before_validation on: :create do
     self.state = {
       chances: 6,
-      word: 'secret',
+      word: Spicy::Proton.adjective,
       placeholder: '*' * 'secret'.size,
       game_state: 'Running'
       }

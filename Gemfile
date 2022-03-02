@@ -82,3 +82,5 @@ group :test do
 end
 
 gem 'rubocop', '~> 1.25'
+
+gem "spicy-proton", "~> 2.1"
