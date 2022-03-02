@@ -1,4 +1,4 @@
-<div id="<%= dom_id cat %>">
+<%= tag.div id: dom_id(cat) do %>
   <% 3.times do |row| %>
     <div class='row'>
       <% 3.times do |col| %>
@@ -14,7 +14,8 @@
     </div>
   <% end %>
 
-  <br><% cat.state.each do |element| %>
+  <br>
+  <% cat.state.each do |element| %>
     <%= element %><br>
   <% end %><br>
-</div>
+<% end %>

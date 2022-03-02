@@ -18,4 +18,8 @@ Rails.application.routes.draw do
   resources :four_lines do
     resources :moves, only: [:create]
   end
+
+  resources :hangmen do
+    resources :moves, only: [:create]
+  end
 end

@@ -14,6 +14,11 @@ class MovesController < ApplicationController
       @four_line.move params[:row], params[:col]
     end
 
+    if params[:hangman_id].present?
+      @hangman = Hangman.find params[:hangman_id]
+      @hangman.move params[:word]
+    end
+
     respond_to do |format|
       format.turbo_stream
       format.html { redirect_to @game }

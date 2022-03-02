@@ -1,4 +1,4 @@
-<div id="<%= dom_id four_line %>">
+<%= tag.div id: dom_id(four_line) do %>
   <% 4.times do |row| %>
     <div class='row'>
       <% 4.times do |col| %>
@@ -17,4 +17,4 @@
   <br><% four_line.state.each do |element| %>
     <%= element %><br>
   <% end %><br>
-</div>
+<% end %>

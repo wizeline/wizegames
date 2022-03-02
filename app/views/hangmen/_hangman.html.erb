@@ -1,0 +1,22 @@
+<section class='game hangman'>
+<h1> Hangman! </h1>
+<% if hangman.state['game_state'] == 'GameOver'%>
+  <h2> Game Over!! :( </h2>
+<% end %>
+<% if hangman.state['game_state'] == 'Victory' %>
+  <h2> You Won!! :) </h2>
+<% end %>
+
+<% if hangman.state['game_state'] == 'Running' %>
+  <h4> Guess a letter </h4>
+    <%= tag.div id: dom_id(hangman) do %>
+      <%= form_with url: hangman_moves_path(hangman) do |f| %>
+        <%= f.hidden_field :game_id, value: game.id%>
+        <%= f.text_field :word %>
+        <%= f.submit %>  
+      <% end %>
+    <% end %>
+    <p> Secret word: <%= hangman.state['placeholder'] %>
+    <p> Chances left: <%= hangman.state['chances'] %> </p>
+<% end %>
+</section>
