@@ -1,12 +1,15 @@
+require 'spicy-proton'
+
 class Hangman < ApplicationRecord
   belongs_to :user
   broadcasts
 
   before_validation on: :create do
+    random_word = Spicy::Proton.adjective
     self.state = {
-      chances: 6,
-      word: 'secret',
-      placeholder: '*' * 'secret'.size,
+      chances: 9,
+      word: random_word,
+      placeholder: '*' * random_word.size,
       game_state: 'Running'
       }
   end
