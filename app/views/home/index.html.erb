@@ -8,11 +8,21 @@
     </div>
   </div>
   <div class='games-container'>
-    <%# (0..8).each do %>
-      <%#= render 'shared/game_card' %>
+    <%# games.each do %>
+      <div class='game-card' onclick="window.location='<%=games_path(name: 'cat')%>'" style="background-image: url(<%= asset_path 'tic-tac-toe-2.jpg'%>)">
+        <div>
+          <h4> <%= link_to 'Cat (Tic Tac Toe)', games_path(name: 'cat') %> </h4>
+          <p> Play the classic Tic-Tac-Toe game (also called Cat or Noughts and Crosses) with one or two players.</p>
+        </div>
+      </div>
+      <div class='game-card' onclick="window.location='<%=games_path(name: 'four_lines')%>'" style="background-image: url(<%= asset_path 'four_in_line.jpg'%>)">
+        <div>
+          <h4> <%= link_to 'Four in Line', games_path(name: 'four_lines') %> </h4>
+          <p> Play this classic board game against a friend. Connect four of your color checkers in a row horizontally, vertically, or diagonally before your opponent. The first player to connect four of the same color chips in a row wins.</p>
+        </div>
+      </div>
+
     <%# end %>
-    <%= link_to 'Cat', games_path(name: 'cat') %> <br>
-    <%= link_to 'FourLine', games_path(name: 'four_lines') %> <br>
-    <%= link_to 'Hangman', games_path(name: 'hangman') %>
+    <br>
   </div>
 </section>

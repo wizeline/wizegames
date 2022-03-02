@@ -1,8 +1,8 @@
-<%= tag.div id: dom_id(cat) do %>
+<div id="<%= dom_id cat %>" class="cat_game">
   <% 3.times do |row| %>
-    <div class='row'>
+    <div class='row cat_row_<%=row%>'>
       <% 3.times do |col| %>
-      <span class='cell'>
+      <span class='cell cat_col_<%=col%>'>
         <% unless cat.state['board'][row.to_s][col.to_s].nil? %>
           <%= cat.state['board'][row.to_s][col.to_s] %>
         <% else %>

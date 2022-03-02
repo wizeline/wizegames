@@ -13,9 +13,16 @@ nav {
   }
 
   .logo {
-    width: 150px;
+    max-height: 70px;
     border-radius: 18px;
     background-color: white;
     padding: 1em;
+    margin: 5px 15px;
+    
+    img{
+      max-height: 70px;
+      margin-top: -17px;
+      padding:5px;
+    }
   }
 }

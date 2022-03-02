@@ -1,17 +1,28 @@
-<h1><%= params[:name].capitalize %></h1>
-<%= current_user.email %><br>
+<div class="lobby">
+  <div> 
+    <h1><%= params[:name].upcase.gsub("_", " ") %></h1>
+  </div>
+  <div> 
+    <%= current_user.email %><br>
+  </div>
+  <div> 
 
-<% game = Game.create %>
+    <% game = Game.create %>
 
-<% case params[:name] %>
-  <% when 'cat' %>
-  <% cat = Cat.create! user_id: current_user.id %>
-  <% game.set_game name: params[:name], sort: 'cat', id: cat.id %>
-  <% when 'four_lines' %>
-  <% four_lines = FourLine.create! user_id: current_user.id %>
-  <% game.set_game name: params[:name], sort: 'four_lines', id: four_lines.id %>
-  <% when 'hangman' %>
-  <% hangman = Hangman.create! user_id: current_user.id %>
-  <% game.set_game name: params[:name], sort: 'hangman', id: hangman.id %>
-<% end %>
-<%= link_to 'Start Game', game_path(game) %>
+    <% case params[:name] %>
+      <% when 'cat' %>
+      <% cat = Cat.create! user_id: current_user.id %>
+      <% game.set_game name: params[:name], sort: 'cat', id: cat.id %>
+      <% when 'four_lines' %>
+      <% four_lines = FourLine.create! user_id: current_user.id %>
+      <% game.set_game name: params[:name], sort: 'four_lines', id: four_lines.id %>
+    <% end %>
+    <a href="<%= game_path(game) %>" class="animated-button1">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Start Game
+    </a>
+  </div>
+</div>

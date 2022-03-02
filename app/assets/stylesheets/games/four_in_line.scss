@@ -1,0 +1,42 @@
+@mixin rounder-filled($theme: white){
+  text-indent: -9999px;
+  background: $theme;
+  vertical-align: middle;
+  color: $theme !important;
+  border-radius: 50%;
+  max-width: 70px;
+  max-height: 70px;
+  border-color: transparent !important;
+  box-shadow: -1px 3px 20px 4px $theme;
+}
+.four_in_line_game {
+  padding: 15px;
+
+  button {
+    color: transparent !important;
+    background: none!important;
+    padding: 5px 10px!important;
+    margin: 0px!important;
+    border: none!important;
+    height: 100px;
+    width: 100px;
+  }
+
+  .row {
+    .cell {
+      border-right: 3px solid white;
+      border-left: 3px solid white;
+    } 
+    .four_team_x{
+     @include rounder-filled($theme: red);
+    }
+    .four_team_o{
+      @include rounder-filled($theme: yellow);
+    }
+  }
+  .cat_row_5{
+    .cell{
+    border-bottom: 3px solid white;
+    }
+  }
+}

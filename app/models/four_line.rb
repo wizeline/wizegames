@@ -7,10 +7,13 @@ class FourLine < ApplicationRecord
       current_symbol: ['x', 'o'].sample,
       winner_state: false,
       board: {
-        0 => { 0 => nil, 1 => nil, 2 => nil, 3 => nil },
-        1 => { 0 => nil, 1 => nil, 2 => nil, 3 => nil },
-        2 => { 0 => nil, 1 => nil, 2 => nil, 3 => nil },
-        3 => { 0 => nil, 1 => nil, 2 => nil, 3 => nil }
+        0 => { 0 => nil, 1 => nil, 2 => nil, 3 => nil, 4 => nil, 5 => nil, 6 => nil },
+        1 => { 0 => nil, 1 => nil, 2 => nil, 3 => nil, 4 => nil, 5 => nil, 6 => nil },
+        2 => { 0 => nil, 1 => nil, 2 => nil, 3 => nil, 4 => nil, 5 => nil, 6 => nil },
+        3 => { 0 => nil, 1 => nil, 2 => nil, 3 => nil, 4 => nil, 5 => nil, 6 => nil },
+        4 => { 0 => nil, 1 => nil, 2 => nil, 3 => nil, 4 => nil, 5 => nil, 6 => nil },
+        5 => { 0 => nil, 1 => nil, 2 => nil, 3 => nil, 4 => nil, 5 => nil, 6 => nil },
+        6 => { 0 => nil, 1 => nil, 2 => nil, 3 => nil, 4 => nil, 5 => nil, 6 => nil }
       }
     }
   end

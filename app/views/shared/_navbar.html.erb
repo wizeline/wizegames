@@ -1,6 +1,6 @@
 <nav> 
-  <div>
-    <%= image_tag 'logo_2.png', class: 'logo' %> 
+  <div class="logo">
+    <%= link_to image_tag("logo_2.png"), {action: 'index', controller: 'home'} %>
   </div>
   <div>
     <%= render 'shared/user_card' %>
